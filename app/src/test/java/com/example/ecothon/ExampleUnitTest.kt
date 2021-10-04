@@ -1,4 +1,4 @@
-package com.example.ecothon.authentication.loginauth
+package com.example.ecothon
 
 import org.junit.Test
 
