@@ -3,13 +3,31 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppNameBegin">
+        <item name="font">@font/poppins_regular</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="AppNameEnd">
+        <item name="font">@font/poppins_regular</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/whiteBackground</item>
     </style>
 
     <style name="TextDefault">
         <item name="font">@font/poppins_regular</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorTextDefault</item>
+    </style>
+
+    <style name="TextRegular">
+        <item name="font">@font/poppins_regular</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/colorTextDefault</item>
     </style>
 
@@ -20,19 +38,26 @@
     </style>
 
     <style name="TextInputDefault">
+        <item name="android:paddingLeft">4sp</item>
         <item name="font">@font/poppins_regular</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="hintTextColor">@color/colorTextHintDefault</item>
         <item name="android:textColor">@color/colorTextDefault</item>
     </style>
 
     <style name="ButtonPrimary">
         <item name="android:background">@drawable/bg_button_primary</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/colorTextWhite</item>
         <item name="font">@font/poppins_semibold</item>
         <item name="android:textAllCaps">false</item>
     </style>
+
+    <style name="InputTextBox">
+        <item name="android:background">@drawable/text_inputs</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 
 
 </resources>
