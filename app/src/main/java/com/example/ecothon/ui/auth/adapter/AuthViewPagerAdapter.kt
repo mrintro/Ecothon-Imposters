@@ -1,10 +1,10 @@
-package com.example.ecothon.auth.adapter
+package com.example.ecothon.ui.auth.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.ecothon.auth.LoginFragment
-import com.example.ecothon.auth.RegisterFragment
+import com.example.ecothon.ui.auth.LoginFragment
+import com.example.ecothon.ui.auth.RegisterFragment
 
 
 class AuthViewPagerAdapter(

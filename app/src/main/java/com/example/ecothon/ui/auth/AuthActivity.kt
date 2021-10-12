@@ -1,10 +1,10 @@
-package com.example.ecothon.auth
+package com.example.ecothon.ui.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import androidx.viewpager2.widget.ViewPager2
-import com.example.ecothon.auth.adapter.AuthViewPagerAdapter
+import com.example.ecothon.ui.auth.adapter.AuthViewPagerAdapter
 import com.example.ecothon.databinding.ActivityAuthBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
