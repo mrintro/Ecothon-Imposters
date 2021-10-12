@@ -8,13 +8,13 @@ interface AuthApi {
 
     @FormUrlEncoded
     @POST("auth/login/email")
-    fun loginWithEmail(
+    suspend fun loginWithEmail(
         @Field("email") email:String,
         @Field("password") password:String
     ) : Any
 
     @POST("auth/login/username")
-    fun loginWithUsername(
+    suspend fun loginWithUsername(
         @Field("username") username:String,
         @Field("password") password:String
     ) : Any
