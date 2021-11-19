@@ -27,6 +27,7 @@
             android:src="@drawable/ic_name_person" />
 
         <EditText
+            android:id="@+id/name"
             android:background="@android:color/transparent"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
@@ -56,6 +57,7 @@
             android:src="@drawable/ic_username" />
 
         <EditText
+            android:id="@+id/username"
             android:background="@android:color/transparent"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
@@ -85,6 +87,7 @@
             android:src="@drawable/ic_baseline_mail_outline" />
 
         <EditText
+            android:id="@+id/email"
             android:background="@android:color/transparent"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
@@ -115,6 +118,7 @@
             android:src="@drawable/ic_password" />
 
         <EditText
+            android:id="@+id/password"
             android:background="@android:color/transparent"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
@@ -144,6 +148,7 @@
             android:src="@drawable/ic_password" />
 
         <EditText
+            android:id="@+id/confirmPassword"
             android:background="@android:color/transparent"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
@@ -154,7 +159,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/registerButton"
         style="@style/ButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

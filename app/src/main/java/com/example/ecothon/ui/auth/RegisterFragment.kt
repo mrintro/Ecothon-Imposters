@@ -1,60 +1,58 @@
 package com.example.ecothon.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import com.example.ecothon.R
+import com.example.ecothon.databinding.FragmentRegisterBinding
+import com.example.ecothon.network.AuthApi
+import com.example.ecothon.network.RemoteDataSource
+import com.example.ecothon.network.Resource
+import com.example.ecothon.repository.AuthRepository
+import com.example.ecothon.ui.base.BaseFragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class RegisterFragment : BaseFragment<AuthViewModel, FragmentRegisterBinding, AuthRepository>() {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegisterFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class RegisterFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+        viewModel.signUpResponse.observe(viewLifecycleOwner, Observer {
+            when(it){
+                is Resource.Success -> {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false)
-    }
+                }
+                else -> {
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegisterFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegisterFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
+        })
+
+        binding.registerButton.setOnClickListener{
+            val email = binding.email.text.toString().trim()
+            val name = binding.name.text.toString().trim()
+            val password = binding.password.text.toString().trim()
+            val username = binding.username.text.toString().trim()
+            val confirmPassword = binding.confirmPassword.text.toString().trim()
+
+            Log.d("Registering","Check if clicked")
+
+            viewModel.signup(email,password,username, name)
+
+        }
+
     }
+
+    override fun getViewModel() = AuthViewModel::class.java
+
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentRegisterBinding.inflate(inflater, container, false)
+
+    override fun getFragmentRepository() = AuthRepository(RemoteDataSource.buildApi(AuthApi::class.java))
+
 }

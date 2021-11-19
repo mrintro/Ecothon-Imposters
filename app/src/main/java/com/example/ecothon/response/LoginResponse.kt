@@ -1,11 +1,13 @@
 package com.example.ecothon.response
 
 data class LoginResponse(
-    val displayName: String,
+    val token: String,
+    val user: User
+)
+data class User(
+    val __v: Int,
+    val _id: String,
     val email: String,
-    val expiresIn: String,
-    val idToken: String,
-    val localId: String,
-    val refreshToken: String,
-    val registered: Boolean
+    val name: String,
+    val username: String
 )

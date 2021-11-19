@@ -1,18 +1,43 @@
 package com.example.ecothon.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.Observer
 import com.example.ecothon.databinding.FragmentLoginBinding
+import com.example.ecothon.network.AuthApi
+import com.example.ecothon.network.RemoteDataSource
+import com.example.ecothon.network.Resource
 import com.example.ecothon.repository.AuthRepository
 import com.example.ecothon.ui.base.BaseFragment
-import com.google.android.gms.common.api.Api
 
 class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
 
+
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
+            when(it){
+                is Resource.Success -> {
+                    Log.d("Login",it.value.toString())
+                }
+                is Resource.Failure -> {
+                    Log.d("Login", "Failure")
+                }
+            }
+        })
+
+        binding.loginButton.setOnClickListener {
+            val email = binding.usernameOrEmail.text.toString().trim()
+            val password = binding.password.text.toString().trim()
+            Log.d("login",email+password)
+
+            viewModel.login(email, password)
+        }
 
     }
 
@@ -23,6 +48,6 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         container: ViewGroup?
     ) = FragmentLoginBinding.inflate(inflater, container, false)
 
-    override fun getFragmentRepository() = AuthRepository(remoteDataSource.buildApi(Api::class.java))
+    override fun getFragmentRepository() = AuthRepository(RemoteDataSource.buildApi(AuthApi::class.java))
 
 }

@@ -1,9 +1,9 @@
 package com.example.ecothon.repository
 
-import com.google.android.gms.common.api.Api
+import com.example.ecothon.network.AuthApi
 
 class AuthRepository(
-    private val api: Api<*>
+    private val api: AuthApi
 ) : BaseRepository() {
 
     suspend fun loginWithEmail (
@@ -11,6 +11,15 @@ class AuthRepository(
         password: String
     ) = safeApiCall {
         api.loginWithEmail(email, password)
+    }
+
+    suspend fun signUp(
+        email: String,
+        password: String,
+        username: String,
+        name: String
+    ) = safeApiCall {
+        api.signUp(email, password, username, name)
     }
 
 }

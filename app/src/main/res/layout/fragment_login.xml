@@ -26,6 +26,7 @@
             android:src="@drawable/ic_baseline_mail_outline" />
 
         <EditText
+            android:id="@+id/usernameOrEmail"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -56,6 +57,7 @@
             android:src="@drawable/ic_password" />
 
         <EditText
+            android:id="@+id/password"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -78,6 +80,7 @@
         app:layout_constraintVertical_bias=".01" />
 
     <Button
+        android:id="@+id/loginButton"
         style="@style/ButtonPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
