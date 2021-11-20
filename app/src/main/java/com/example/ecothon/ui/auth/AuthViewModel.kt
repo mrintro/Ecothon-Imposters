@@ -11,6 +11,7 @@ import com.example.ecothon.response.LoginResponse
 import com.example.ecothon.response.SignUpMessage
 import kotlinx.coroutines.launch
 
+//Adding comment
 class AuthViewModel(
     private val repository: AuthRepository
 ): ViewModel() {
