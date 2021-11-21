@@ -42,18 +42,6 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
             viewModel.login(email, password)
         }
 
-        binding.usernameOrEmailEditText.setOnClickListener{
-            Log.d("here","HHEre" )
-        }
-
-//        binding.fragmentParent.viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
-////            Log.d("focus",newFocus?..toString())
-//            if (newFocus?.id?.let { view?.resources?.getResourceName(it) }
-//                    ?.contains("EditText") == false) {
-//                activity?.let { Utility().hideSoftKeyboard(it) }
-//            }
-//        }
-
     }
 
     override fun getViewModel() = AuthViewModel::class.java

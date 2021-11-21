@@ -6,8 +6,11 @@ import android.content.ContextWrapper
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.ContextCompat.getSystemService
+import com.example.ecothon.MainActivity
 import com.example.ecothon.R
 import com.example.ecothon.Utility
 
@@ -15,21 +18,18 @@ class CustomEditText @JvmOverloads constructor(
     context: Context, attributeSet: AttributeSet? = null, defStyleAttr: Int = android.R.attr.editTextStyle
 ) : AppCompatEditText(context, attributeSet,  defStyleAttr){
 
-//class CustomEditText : AppCompatTextView {
-//
-//    constructor(context: Context) : this(context, null)
-//    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-//    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    private val contextStored = context as Activity
+
 
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
-        Utility().hideSoftKeyboard(context as Activity)
-//        Log.d("Context", (context as Activity).toString())
+        Log.d("Focus", (context as Activity).currentFocus.toString())
+        if(!focused) {
+            var inputMethodManager =
+                contextStored.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+            val res = inputMethodManager.hideSoftInputFromWindow(applicationWindowToken, 0)
+            Log.d("logger", res.toString())
+        }
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
-    }
-
-    override fun setOnClickListener(l: OnClickListener?) {
-        Log.d("Custom", "On CLick Check")
-        super.setOnClickListener(l)
     }
 
 }
