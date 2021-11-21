@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.example.ecothon.ui.auth.LoginFragment">
 
 
@@ -25,8 +28,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_mail_outline" />
 
-        <EditText
-            android:id="@+id/usernameOrEmail"
+        <com.example.ecothon.ui.customUIPackage.CustomEditText
+            android:id="@+id/usernameOrEmailEditText"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -56,14 +59,15 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_password" />
 
-        <EditText
-            android:id="@+id/password"
+        <com.example.ecothon.ui.customUIPackage.CustomEditText
+            android:id="@+id/passwordEditText"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:background="@android:color/transparent"
-            android:hint="@string/password" />
+            android:hint="@string/password"
+            tools:ignore="TextContrastCheck" />
 
     </LinearLayout>
 

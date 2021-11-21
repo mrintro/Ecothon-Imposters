@@ -28,6 +28,7 @@ class AuthActivity : AppCompatActivity() {
 
         setUpLoginTabs()
 
+
     }
 
     private fun setUpLoginTabs() {
