@@ -20,29 +20,29 @@ class RegisterFragment : BaseFragment<AuthViewModel, FragmentRegisterBinding, Au
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel.signUpResponse.observe(viewLifecycleOwner, Observer {
-            when(it){
-                is Resource.Success -> {
-
-                }
-                else -> {
-
-                }
-            }
-        })
-
-        binding.registerButton.setOnClickListener{
-            val email = binding.email.text.toString().trim()
-            val name = binding.name.text.toString().trim()
-            val password = binding.password.text.toString().trim()
-            val username = binding.username.text.toString().trim()
-            val confirmPassword = binding.confirmPassword.text.toString().trim()
-
-            Log.d("Registering","Check if clicked")
-
-            viewModel.signup(email,password,username, name)
-
-        }
+//        viewModel.signUpResponse.observe(viewLifecycleOwner, Observer {
+//            when(it){
+//                is Resource.Success -> {
+//
+//                }
+//                else -> {
+//
+//                }
+//            }
+//        })
+//
+//        binding.registerButton.setOnClickListener{
+//            val email = binding.email.text.toString().trim()
+//            val name = binding.name.text.toString().trim()
+//            val password = binding.password.text.toString().trim()
+//            val username = binding.username.text.toString().trim()
+//            val confirmPassword = binding.confirmPassword.text.toString().trim()
+//
+//            Log.d("Registering","Check if clicked")
+//
+//            viewModel.signup(email,password,username, name)
+//
+//        }
 
     }
 

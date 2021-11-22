@@ -37,7 +37,6 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         binding.loginButton.setOnClickListener {
             val email = binding.usernameOrEmailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
-            Log.d("login",email+password)
 
             viewModel.login(email, password)
         }

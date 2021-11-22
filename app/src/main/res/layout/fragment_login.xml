@@ -11,6 +11,7 @@
 
 
     <LinearLayout
+        android:paddingVertical="8dp"
         android:id="@+id/linearLayoutUsername"
         style="@style/InputTextBox"
         android:layout_width="0dp"
@@ -29,10 +30,11 @@
             android:src="@drawable/ic_baseline_mail_outline" />
 
         <com.example.ecothon.ui.customUIPackage.CustomEditText
+
             android:id="@+id/usernameOrEmailEditText"
             style="@style/TextInputDefault"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
 
             android:background="@android:color/transparent"
@@ -41,6 +43,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:paddingVertical="8dp"
         android:id="@+id/linearLayoutPassword"
         style="@style/InputTextBox"
         android:layout_width="0dp"

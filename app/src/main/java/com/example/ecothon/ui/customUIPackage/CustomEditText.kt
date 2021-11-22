@@ -27,7 +27,6 @@ class CustomEditText @JvmOverloads constructor(
             var inputMethodManager =
                 contextStored.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
             val res = inputMethodManager.hideSoftInputFromWindow(applicationWindowToken, 0)
-            Log.d("logger", res.toString())
         }
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
     }
