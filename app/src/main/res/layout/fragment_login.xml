@@ -42,6 +42,20 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/email_or_username_error"
+        android:visibility="gone"
+        style="@style/ErrorText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutUsername"
+        app:layout_constraintWidth_percent="0.8"
+        android:paddingStart="12dp"
+        android:text="@string/username_or_email_required"
+        tools:ignore="RtlSymmetry" />
+
     <LinearLayout
         android:paddingVertical="8dp"
         android:id="@+id/linearLayoutPassword"
@@ -75,6 +89,20 @@
     </LinearLayout>
 
     <TextView
+        android:visibility="gone"
+        android:id="@+id/passwordError"
+        style="@style/ErrorText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="12dp"
+        android:text="@string/username_or_email_required"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutPassword"
+        app:layout_constraintWidth_percent="0.8"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,7 +111,7 @@
         app:layout_constraintEnd_toEndOf="@+id/linearLayoutPassword"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutPassword"
+        app:layout_constraintTop_toBottomOf="@+id/passwordError"
         app:layout_constraintVertical_bias=".01" />
 
     <Button

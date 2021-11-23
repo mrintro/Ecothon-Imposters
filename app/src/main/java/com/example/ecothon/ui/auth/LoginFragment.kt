@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import androidx.lifecycle.Observer
+import com.example.ecothon.R
 import com.example.ecothon.Utility
 import com.example.ecothon.databinding.FragmentLoginBinding
 import com.example.ecothon.network.AuthApi
@@ -15,10 +16,8 @@ import com.example.ecothon.network.Resource
 import com.example.ecothon.repository.AuthRepository
 import com.example.ecothon.ui.base.BaseFragment
 
+//commenting for commit
 class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
-
-
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -29,18 +28,36 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
                     Log.d("Login",it.value.toString())
                 }
                 is Resource.Failure -> {
-                    Log.d("Login", "Failure")
+                    it.errorBody?.let { it1 -> Log.d("Login", it1.string()) }
                 }
             }
         })
 
         binding.loginButton.setOnClickListener {
-            val email = binding.usernameOrEmailEditText.text.toString().trim()
+            resetVisibility()
+            val emailOrUsername = binding.usernameOrEmailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
-
-            viewModel.login(email, password)
+            when {
+                emailOrUsername=="" -> {
+                    Log.d("email",getString(R.string.email_required))
+                    binding.emailOrUsernameError.text =getString(R.string.email_required)
+                    binding.emailOrUsernameError.visibility = View.VISIBLE
+                }
+                password=="" -> {
+                    binding.passwordError.text = getString(R.string.password_required)
+                    binding.passwordError.visibility = View.VISIBLE
+                }
+                else -> {
+                    viewModel.login(emailOrUsername, password)
+                }
+            }
         }
 
+    }
+
+    private fun resetVisibility() {
+        binding.emailOrUsernameError.visibility=View.GONE
+        binding.passwordError.visibility=View.GONE
     }
 
     override fun getViewModel() = AuthViewModel::class.java

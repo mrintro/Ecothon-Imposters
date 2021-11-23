@@ -28,7 +28,6 @@ class CustomEditText @JvmOverloads constructor(
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         if(!focused) {
             isAnyTextViewFocused = false
-            Log.d("Focus Check", "false")
             android.os.Handler(Looper.getMainLooper()).postDelayed(
                 Runnable {
                     kotlin.run {
@@ -42,7 +41,6 @@ class CustomEditText @JvmOverloads constructor(
             )
         }
         if(focused){
-            Log.d("Focus Check", "true")
             isAnyTextViewFocused = true
         }
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
