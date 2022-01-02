@@ -7,10 +7,11 @@ import android.view.Window
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ecothon.ui.auth.adapter.AuthViewPagerAdapter
 import com.example.ecothon.databinding.ActivityAuthBinding
+import com.example.ecothon.ui.auth.adapter.AuthViewFragmentCallback
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class AuthActivity : AppCompatActivity() {
+class AuthActivity : AppCompatActivity() , AuthViewFragmentCallback {
 
     lateinit var tabLayout:  TabLayout
     lateinit var viewPager: ViewPager2
@@ -20,7 +21,7 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         println("Check log")
-        Log.d("Check","porint nahi hona chahiye")
+        Log.d("Check","print nahi hona chahiye")
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
         val view = binding.root
@@ -32,7 +33,6 @@ class AuthActivity : AppCompatActivity() {
 
         setUpLoginTabs()
 
-
     }
 
     private fun setUpLoginTabs() {
@@ -41,5 +41,9 @@ class AuthActivity : AppCompatActivity() {
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = titles[position]
         }.attach()
+    }
+
+    override fun goto(pos: Int) {
+        viewPager.setCurrentItem(pos)
     }
 }
