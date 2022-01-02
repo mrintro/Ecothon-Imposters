@@ -31,6 +31,11 @@ class RegisterFragment : BaseFragment<AuthViewModel, FragmentRegisterBinding, Au
         Log.d("Register Fragment", "onDestroy Called")
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("Register Fragment", "onDestroyView Called")
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d("Register Fragment", "OnAttach Called")
@@ -48,9 +53,13 @@ class RegisterFragment : BaseFragment<AuthViewModel, FragmentRegisterBinding, Au
             when(it){
                 is Resource.Success -> {
                     Toast.makeText(activity, "Account created successfully", Toast.LENGTH_LONG).show()
+                    binding.name.setText("")
+                    binding.email.setText("")
+                    binding.password.setText("")
+                    binding.confirmPassword.setText("")
+                    binding.username.setText("")
                     try {
                         callback.goto(0)
-                        onDetach()
                     } catch (error : Exception){
                         Log.e("Cannot switch the fragment", error.message.toString())
                     }
