@@ -5,10 +5,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import androidx.lifecycle.Observer
 import com.example.ecothon.R
-import com.example.ecothon.Utility
 import com.example.ecothon.databinding.FragmentLoginBinding
 import com.example.ecothon.network.AuthApi
 import com.example.ecothon.network.RemoteDataSource
@@ -16,11 +14,21 @@ import com.example.ecothon.network.Resource
 import com.example.ecothon.repository.AuthRepository
 import com.example.ecothon.ui.base.BaseFragment
 
-//commenting for commit
+
 class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepository>() {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun getViewModel() = AuthViewModel::class.java
+
+    override fun getFragmentBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ) = FragmentLoginBinding.inflate(inflater, container, false)
+
+    override fun getFragmentRepository() = AuthRepository(RemoteDataSource.buildApi(AuthApi::class.java))
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         viewModel.loginResponse.observe(viewLifecycleOwner, Observer {
             when(it){
@@ -60,13 +68,6 @@ class LoginFragment : BaseFragment<AuthViewModel, FragmentLoginBinding, AuthRepo
         binding.passwordError.visibility=View.GONE
     }
 
-    override fun getViewModel() = AuthViewModel::class.java
 
-    override fun getFragmentBinding(
-        inflater: LayoutInflater,
-        container: ViewGroup?
-    ) = FragmentLoginBinding.inflate(inflater, container, false)
-
-    override fun getFragmentRepository() = AuthRepository(RemoteDataSource.buildApi(AuthApi::class.java))
 
 }

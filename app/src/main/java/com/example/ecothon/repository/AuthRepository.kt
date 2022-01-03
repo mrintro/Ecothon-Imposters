@@ -9,9 +9,7 @@ class AuthRepository(
     suspend fun loginWithEmail (
         email: String,
         password: String
-    ) = safeApiCall {
-        api.loginWithEmail(email, password)
-    }
+    ) = safeApiCall { api.loginWithEmail(email, password) }
 
     suspend fun signUp(
         email: String,

@@ -1,4 +1,4 @@
-package com.example.ecothon.ui.auth.adapter
+package com.example.ecothon
 
 interface AuthViewFragmentCallback {
     fun goto(pos: Int)

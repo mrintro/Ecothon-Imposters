@@ -17,7 +17,7 @@ import com.example.ecothon.network.AuthApi
 import com.example.ecothon.network.RemoteDataSource
 import com.example.ecothon.network.Resource
 import com.example.ecothon.repository.AuthRepository
-import com.example.ecothon.ui.auth.adapter.AuthViewFragmentCallback
+import com.example.ecothon.AuthViewFragmentCallback
 import com.example.ecothon.ui.base.BaseFragment
 import java.lang.ClassCastException
 import java.lang.Exception

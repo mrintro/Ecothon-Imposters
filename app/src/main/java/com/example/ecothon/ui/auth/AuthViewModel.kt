@@ -1,6 +1,5 @@
 package com.example.ecothon.ui.auth
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,7 @@ import com.example.ecothon.response.LoginResponse
 import com.example.ecothon.response.SignUpMessage
 import kotlinx.coroutines.launch
 
-//Adding comment
+
 class AuthViewModel(
     private val repository: AuthRepository
 ): ViewModel() {
@@ -20,7 +19,7 @@ class AuthViewModel(
     val loginResponse: LiveData<Resource<LoginResponse>>
     get() = _loginResponse
     fun login(email: String, password: String) {
-        val launch = viewModelScope.launch {
+        viewModelScope.launch {
             _loginResponse.value = repository.loginWithEmail(email, password)
         }
     }
