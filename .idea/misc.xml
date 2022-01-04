@@ -11,7 +11,9 @@
         <entry key="..\:/Ecothon-Imposters/app/src/main/res/drawable/primary_background.xml" value="0.3828125" />
         <entry key="..\:/Ecothon-Imposters/app/src/main/res/drawable/text_inputs.xml" value="0.3828125" />
         <entry key="..\:/Ecothon-Imposters/app/src/main/res/layout/activity_auth.xml" value="0.22" />
+        <entry key="..\:/Ecothon-Imposters/app/src/main/res/layout/activity_fragment_learning.xml" value="0.22" />
         <entry key="..\:/Ecothon-Imposters/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Ecothon-Imposters/app/src/main/res/layout/fragment_blank.xml" value="0.36666666666666664" />
         <entry key="..\:/Ecothon-Imposters/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Ecothon-Imposters/app/src/main/res/layout/fragment_register.xml" value="0.33" />
       </map>
