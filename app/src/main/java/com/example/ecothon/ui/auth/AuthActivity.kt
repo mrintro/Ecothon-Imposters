@@ -15,9 +15,10 @@ class AuthActivity : AppCompatActivity() , AuthViewFragmentCallback {
     lateinit var tabLayout:  TabLayout
     lateinit var viewPager: ViewPager2
     lateinit var binding : ActivityAuthBinding
-    private val titles = arrayListOf<String>(
+    private val titles = arrayListOf(
         "Login",
-        "Register"
+        "Register",
+        "VPRecycler"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

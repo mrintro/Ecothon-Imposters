@@ -13,11 +13,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         finish()
     //  AuthActivity Intent
-    //  startActivity(Intent(this, AuthActivity::class.java))
+      startActivity(Intent(this, AuthActivity::class.java))
 
 
     //  Fragment Learning
-    startActivity(Intent(this, FragmentLearningActivity::class.java))
+//    startActivity(Intent(this, FragmentLearningActivity::class.java))
 
     }
 }
