@@ -7,6 +7,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.ecothon.ui.auth.adapter.AuthViewPagerAdapter
 import com.example.ecothon.databinding.ActivityAuthBinding
 import com.example.ecothon.AuthViewFragmentCallback
+import com.example.ecothon.tooltip.ToolTip
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -30,9 +31,15 @@ class AuthActivity : AppCompatActivity() , AuthViewFragmentCallback {
 
         viewPager = binding.ViewPager
         tabLayout = binding.tabLayout
+        setUpToolTip()
 
         setUpLoginTabs()
 
+    }
+
+    private fun setUpToolTip() {
+        val toolTip = ToolTip.Builder(this).build()
+        toolTip.showAnchorTop(binding.headerTitle)
     }
 
     private fun setUpLoginTabs() {
